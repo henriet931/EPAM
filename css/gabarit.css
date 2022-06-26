@@ -1,0 +1,519 @@
+/* Paramètres généraux par défaut */
+@import url(font-awesome.min.css); 		/* importation des polices */
+
+* {
+	margin: 0; 					/* marges avec les bords des éléments voisins */
+	padding: 0;					/* marges entre un contenu et son bord */
+	border: 0;					/* épaisseurs des traits de bordures */
+}
+		
+/* Bannière */
+
+	/* 
+	   Paramètres généraux de la bannière 
+	   Ces paramètres seront appliqués par défaut à tous les éléments de la bannière
+	   sauf s'ils sont redéfinis pour un élément en particulier 
+	*/
+	
+	#banniere {
+		padding: 0em 0 0em 0; 								/* marges pour les textes */
+		background-image: url('../images/banniere.JPG'); 	/* nom du fichier pour l'image de fond à la majuscule près */
+		background-size: cover; 							/* adapte la taille de l'image à la largeur de la fenêtre */
+		background-position: top; 							/* le coin supérieur gauche de l'image est toujours sur la coin supérieur gauche
+															de la fenêtre. 
+															Effet visible quand la largeur de la fenêtre est réduite */
+		background-attachment: fixed;						/* pour fixer le texte au centre du l'image */
+		text-align: center; 								/* alignement du texte */
+		border-top: 0em solid #;							/* paramètres de la bordure du haut : épaisseur ; trait continu ; couleur */
+		border-radius: 0.5em;								/* arrondir les coins de la bannière */
+		margin: 0.1em;										/* marges autour de la bannière */
+	}
+	
+	/* Paramètres appliqués aux textes entre balises H1 et situés dans la section "banniere" */
+
+		#banniere h1 {
+			font-family: "Lalezar";							/* police Helvetica */			
+			font-size: 3em; 								/* taille de la police de caractères */
+			font-weight: 100;								/* épaisseur des lettres de la police de caractères */
+			background-color: rgba(255, 255, 255, 0.55);	/* fond blanc transparent pour que le texte soit lisible */
+			color: rgba(80, 0, 0, 0.75);					/* couleur des caractères */
+			line-height: 10em;								/* hauteur de la ligne dans laquelle le texte est écrit */
+			margin: 0em 0em 0em 0em;						/* marges */
+		}
+
+	/* 
+		Adaptation de certains paramètres en fonction de la taille de l'écran (aspects responsive ) 
+		Tester la fluidité des adaptations des marges en élargissant lentement la fenêtre du navigateur
+	*/
+		
+		/* format écran ordinateur portable : utiliser l'inspecteur du navigateur pour reconnaître le cas */
+		/* Faire varier la largeur du navigateur pour tester toutes les tailles */
+		@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+			#banniere h1 {
+				font-size: 3em; 								/* taille de la police de caractères */
+			}
+		}
+		
+		/* format écran largeur totale de l'écran */
+		@media screen and (max-width: 1280px) {
+			#banniere h1 {
+				font-size: 3em; 								/* taille de la police de caractères */
+			}
+		}
+		
+		/* format 13 pouces */
+		@media screen and (max-width: 980px) {
+			#banniere h1 {
+				font-size: 2.1em; 								/* taille de la police de caractères */
+			}
+		}
+		
+		/* format tablette tactile */
+		@media screen and (max-width: 736px) {
+			#banniere h1 {
+				font-size: 1.5em; 								/* taille de la police de caractères */
+			}
+		}
+
+		/* format smartphone */
+		@media screen and (max-width: 480px) {
+			#banniere h1 {
+				font-size: 1em; 								/* taille de la police de caractères */
+			}
+		}
+		
+/* Menu */
+
+	/*
+		Paramètres généraux du menu situé dans l'entete de la page (header)
+	*/
+	
+	#header {
+		font-family: Lalezar;					/* Police de caractères Awesome comme pour le titre */
+		right: 1em;								/* Marge du texte par rapport à la gauche */
+		line-height: 3.25em;					/* hauteur de ligne dans laquelle le texte est écrit */
+		position: absolute;						/* Positionnement absolu, sans ça, le menu apparaît au-dessus de la bannière */
+		text-align: right;						/* Alignement du texte à droite */
+		top: 2em;								/* Marge par rapport au haut de la page */
+		width: 100%;							/* Le header doit prendre toute la largeur de page, sinon le menu apparaît à gauche */
+	}
+	
+	/* Paramètres du logo qui apparaît dans l'en-tête */
+	
+		#logoFFAAA img {
+			right: 2em;
+			top: 2em;
+			position: absolute;					/* Pour être sur la droite de l'écran */
+			width: 6em;
+		}
+		
+		#header img {
+			left: 2em;							/* Marge à gauche */
+			position: absolute;					/* Pour être sur la gauche de l'écran */
+			width: 3.5em;						/* Taille du logo */
+		}
+		
+		
+		
+		/* Paramètres des liens hypertexte de l'en-tête */
+	
+		#header a {
+			padding: 0 0.75em;					/* Marges autour des éléments du menu */
+			color: #000000;						/* Couleur des textes */
+			text-decoration: none;				/* Absence de surlignage */
+			font-size: 0.9em;					/* Taille des caractères */
+		}
+		
+			#header a:hover {
+				color: rgba(80, 0, 0, 0.75);	/* Couleur lorsque la souris passe sur l'un des items du menu */
+			}
+			
+			#header a:last-child {
+				padding-right: 0;				/* Pas de marge à droite pour le dernier élément du menu */
+			}
+			
+			#header a:first-child {
+				padding-left: 0;				/* Pas de marge à droite pour le premier élément du menu */
+			}
+			
+			
+			
+			/* 
+				Rendre visible les traits du menu burger et 
+				cacher les éléments de "nav" lorsque la taille de l'écran ne dépasse pas 980px 
+			*/
+			@media screen and (max-width: 980px) {
+				#logoFFAAA {
+					display: none;			/* Cacher les éléments de "nav" */
+				}
+				#header img {
+					width: 1em;
+				}
+			}
+				
+/* Mise en forme des sections */
+
+	/* paramètres des traits séparant les sections --> les plus fins possible */
+	hr {
+		border: 0;
+		border-bottom: solid 1px #dbdbdb;
+		margin: 2em 0;
+	}
+	
+	/* Mise en forme général des sections */
+	section.wrapper {
+		color: #000000;								/* couleur du texte par défaut */
+		font-family: Helvetica;						/* police de caractères */
+		font-size: 12pt;							/* taille de la police de caractères */
+		font-weight: 300;							/* épaisser des caractères */
+		line-height: 1.5;							/* hauteur de ligne */
+	}
+	
+		/* Les en-têtes des sections sont alignés au centre */
+		section.wrapper header {		
+			text-align: center;
+			padding: 1em 2em;
+		}
+		
+		section.wrapper footer {		
+			text-align: center;
+			padding: 1em 2em;
+		}
+	
+		/* paramètres des titres h2 des sections */
+		section.wrapper h2 {
+			font-family: Lalezar;
+			color: rgba(80, 0, 0, 0.75);			/* couleur des caractères */
+			font-size: 20pt;						/* taille de la police de caractères */
+			font-weight: 100;						/* épaisseur des caractères */
+			padding: 2em 0 0 0;
+		}
+		
+		section.wrapper header p {
+			font-family: Helvetica;
+			color: #9a9a9a;							/* couleur des caractères */
+			font-size: 14pt;						/* taille de la police de caractères */
+			font-weight: 100;						/* épaisseur des caractères */
+		}
+		
+		section.wrapper footer p {
+			font-family: Helvetica;
+			color: black;							/* couleur des caractères */
+			font-size: 14pt;						/* taille de la police de caractères */
+			/*font-weight: bold;*/
+		}
+		
+		/* paramètres des titres h3 des sections */
+		section.wrapper h3 {
+			font-family: Lalezar;
+			color: rgba(80, 0, 0, 0.75);			/* couleur des caractères */
+			font-size: 16pt;						/* taille des caractères */
+			font-weight: 100;						/* épaisseur des caractères */
+		}
+		
+		/* Marges entre les articles et les sections */
+		section.wrapper article {
+			padding: 1em 2em;
+		}
+		
+			/* paramètres des liens hypertexte dans les textes des articles des sections */
+			section.wrapper article a {
+				text-decoration:none;				/* Pas de surlignage */
+				color: rgba(80, 0, 0, 0.75);		/* couleur du texte différente */
+			}
+			
+			/* Lorsque la souris est positionnée sur l'un des liens hypertexte d'un article */
+			section.wrapper article a:hover {
+				color: #000000;						/* couleur du texte */
+				font-weight: 400;					/* épaisseur des caractères un peu plus importante */
+			}
+	
+/* Classe Flex */ 
+	
+	/* Flex permet de créer des blocs qui vont se replacer les uns au dessous des autres gâce à "flex-wrap: wrap" */
+	/* Il y a une commande par type de navigateur */
+
+	.flex {
+		
+		/* Pour pouvoir utiliser FLEX toolkit sur les différents navigateurs */
+		display: flex;
+		
+		/* Les articles vont se placer les uns au-dessous des autres */
+		/* Tester les autres valeurs possibles : nowrap et reverse-wrap */
+		flex-wrap: wrap;
+		
+		/* Permet d'utiliser tout l'espace possible : disposition justifiée de Word par exemple */
+		/* space-between : premier bloc le plus à gauche possible, les suivants se répartissent pour occuper tout le reste de l'espace */
+		/* Tester les autres valeurs possibles : flex-start, flex-end, center, space-around, space-evenly */
+		justify-content: space-between;
+	}
+	
+	.flexcours {
+		
+		/* Pour pouvoir utiliser FLEX toolkit sur les différents navigateurs */
+		display: flex;
+		
+		/* Les articles vont se placer les uns au-dessous des autres */
+		/* Tester les autres valeurs possibles : nowrap et reverse-wrap */
+		flex-wrap: wrap;
+		
+		/* Permet d'utiliser tout l'espace possible : disposition justifiée de Word par exemple */
+		/* space-between : premier bloc le plus à gauche possible, les suivants se répartissent pour occuper tout le reste de l'espace */
+		/* Tester les autres valeurs possibles : flex-start, flex-end, center, space-around, space-evenly */
+		justify-content: space-between;
+		
+		padding: 0 5em;
+	}
+	
+	@media screen and (max-width: 980px) {
+		.flexcours {
+			padding: 0 2em;
+		}
+	}
+	
+	@media screen and (max-width: 480px) {
+		.flexcours {
+			padding: 0;
+		}
+	}
+	
+	/* Gestion spécifique pour les articles de la page d'accueil contenant plus de textes */
+	
+	#accueil article {
+		text-align: justify;							/* Textes justifiés */
+		width: 45%;										/* Par défaut, chaque article occupe 45% de la largeur totale de la page */
+	}
+	
+	#accueil article p {
+		padding: 1em 0 0 0;								/* petites marges entre les paragraphes de cette page */
+	}
+		
+		@media screen and (max-width: 1280px) {
+			#accueil article {
+				width: 90%;							/* Lorsque l'écran fait moins de 1280 pixels de large, l'article occupe toute la largeur */
+			}
+		}
+	
+	/* Gestion de la taille de l'écran pour la vidéo incluse : la div contenant la iframe l'oblige à réduire la taille automatiquement */
+	.video iframe {
+		width: 100%;
+	}
+	
+	.video a {
+		padding: 0 0.75em;					/* Marges autour des éléments du menu */
+		color: #000000;						/* Couleur des textes */
+		text-decoration: none;				/* Absence de surlignage */
+		font-size: 0.9em;					/* Taille des caractères */
+	}
+		
+	.video a:hover {
+		color: rgba(80, 0, 0, 0.75);	/* Couleur lorsque la souris passe sur l'un des items du menu */
+	}
+
+/* grid sur la page contacts */
+
+	.conteneur {
+		display: grid;									/* Disposition en grille CSS */
+		grid-template-columns: 1fr 2fr 2fr 1fr; 		/* Tailles des colonnes : chaque ligne contient 10 cellules */
+		row-gap: 40px;									/* Espacement entre les lignes */
+		column-gap: 40px;								/* Espacement entre les colonnes */
+		grid-auto-rows: minmax(100px, auto);			/* Tailles maximum et minimum des lignes : une ligne ne peut pas faire moins de 100px 
+														même si la largeur de l'écran est inférieure (on ne verra plus le bout de la ligne.
+														Les largeurs de cellules s'étireront et s'espaceront automatiquement sans limite max */
+		background: rgba(80, 0, 0, 2);					/* Couleur de fond de la div de cette classe */
+	}
+	
+	.image img {
+		width: 80%;										/* Largeur de l'image = 80% de la largeur du paragraphe */
+		text-align: center;								/* Image centrée dans le paragraphe */
+		border-radius: 100%;							/* Photo dans une lucarne ronde : les coins de l'image sont arrondis au maximum */
+	}
+	
+	.conteneur p {
+		font-weight: 100;						/* Epaisseur des caractères */
+		text-align: center;						/* Les textes de tout paragraphe du conteneur seront centrés par défaut */
+		padding: 1em 1em 1em 1em;				/* Paddings par défaut de tout paragraphe situé dans conteneur */
+		color: #ffffff;							/* Couleur des caractères */
+	}
+	
+	.personne {
+		font-family: Lalezar;
+		font-size: 16pt;			/* Taille des caractères dans la classe "personne" */
+	}
+	
+	.role {
+		font-family: Helvetica;					/* Police de caractère de tout paragraphe du conteneur */
+	}
+	
+	.entete {
+		grid-column: 1 / 5;			/* La div "entete" tient sur les colonnes 1 à 6 (colonne 6 non incluse) */
+		grid-row: 1;				/* Elle tient sur la première ligne de la grille */
+		background: #ffffff;		/* Le fond est blanc */
+	}
+	
+		.entete h2 {						/* Apparence du titre */
+			font-family: Lalezar;
+			color: rgba(80, 0, 0, 0.75);			/* couleur des caractères */
+			font-size: 20pt;						/* taille de la police de caractères */
+			font-weight: 100;						/* épaisseur des caractères */
+			padding: 1em 0 0 0;						/* Marges du titre */
+			text-align: center;						/* Le titre est centré dans la div */
+		}
+	
+	.pied {
+		grid-column: 1 / 5; 		/* La div "pied" tient sur les colonnes 1 à 6 (colonne 6 non incluse) */
+		grid-row: 4;				/* Elle est située sur la ligne 4 */
+		background: #ffffff;		/* Le fond est blanc */
+	}
+	
+	.gauche {
+		grid-column: 1;					/* La div "gauche" tient sur la première colonne */
+		grid-row: 2 / 4;				/* Elle va de la 2ème à la 4ème ligne (non incluse) */
+		background: rgba(80, 0, 0, 2);	/* Couleur de fond de la div */
+	}
+	
+	.droite {		
+		grid-column: 4;					/* La div "droite" tient sur la dernière colonne (la colonne 5) */	
+		grid-row: 2 / 4;				/* Elle va de la ligne 2 à la ligne 4 (ligne 4 non incluse) */
+		background: rgba(80, 0, 0, 2);	/* Couleur de fond de la div */
+	}
+	
+	.contact1{
+		grid-column: 2;									/* La div "contact1" est située sur la colonne 2... */
+		grid-row: 2;									/* ... et la ligne 2 */
+		border: solid 1px rgba(255, 255, 255, 0.25);	/* Création d'une bordure blanche */
+		background: rgba(80, 0, 0, 2);					/* Couleur de fond de la div */
+	}
+	
+	.contact2{
+		grid-column: 3;									/* La div "contact1" est située sur la colonne 3... */
+		grid-row: 2;									/* ... et la ligne 2 */
+		border: solid 1px rgba(255, 255, 255, 0.25);	/* Création d'une bordure blanche */
+		background: rgba(80, 0, 0, 2);					/* Couleur de fond de la div */
+	}
+	
+	.contact3{
+		grid-column: 2;									/* La div "contact1" est située sur la colonne 4... */
+		grid-row: 3;									/* ... et la ligne 2 */
+		border: solid 1px rgba(255, 255, 255, 0.25);	/* Création d'une bordure blanche */
+		background: rgba(80, 0, 0, 2);					/* Couleur de fond de la div */
+	}
+	
+	.contact4{
+		grid-column: 3;									/* La div "contact1" est située sur la colonne 2... */
+		grid-row: 3;									/* ... et la ligne 3 */
+		border: solid 1px rgba(255, 255, 255, 0.25);	/* Création d'une bordure blanche */
+		background: rgba(80, 0, 0, 2);					/* Couleur de fond de la div */
+	}
+	
+	/* Gestion de la grille pour un écran tablette */
+		@media screen and (max-width: 980px) {
+
+			.conteneur {
+				display: grid;									/* Disposition en grille CSS */
+				grid-template-columns: 1fr 2fr 2fr 1fr;			/* Tailles des colonnes : chaque ligne contient 4 cellules */
+				row-gap: 30px;									/* Espacement entre les lignes */
+				column-gap: 30px;								/* Espacement entre les colonnes */
+				grid-auto-rows: minmax(100px, auto);			/* Tailles maximum et minimum des lignes : une ligne ne peut pas faire moins de 100px 
+																même si la largeur de l'écran est inférieure (on ne verra plus le bout de la ligne.
+																Les largeurs de cellules s'étireront et s'espaceront automatiquement sans limite max */
+				background: rgba(80, 0, 0, 2);					/* Couleur de fond de la div de cette classe */
+			}
+			
+			.entete {
+				grid-column: 1 / 5;			/* La div "entete" tient sur les colonnes 1 à 5 (colonne 5 non incluse) */
+				grid-row: 1;				/* Elle tient sur la première ligne de la grille */
+			}
+			
+			.pied {
+				grid-column: 1 / 5; 		/* La div "pied" tient sur les colonnes 1 à 5 (colonne 5 non incluse) */
+				grid-row: 4;				/* Elle est située sur la ligne 5 */
+			}
+	
+			.gauche {
+				grid-column: 1;					/* La div "gauche" tient sur la première colonne */
+				grid-row: 2 / 4;				/* Elle va de la 2ème à la 5ème ligne (non incluse) */
+			}
+	
+			.droite {		
+				grid-column: 4;					/* La div "droite" tient sur la dernière colonne (la colonne 4) */	
+				grid-row: 2 / 4;				/* Elle va de la ligne 2 à la ligne 5 (ligne 5 non incluse) */
+			}
+	
+			.contact1{
+				grid-column: 2;									/* La div "contact1" est située sur la colonne 2... */
+				grid-row: 2;									/* ... et la ligne 2 */
+			}
+	
+			.contact2{
+				grid-column: 3;									/* La div "contact1" est située sur la colonne 3... */
+				grid-row: 2;									/* ... et la ligne 2 */
+			}
+	
+			.contact3{
+				grid-column: 2;									/* La div "contact1" est située sur la colonne 2... */
+				grid-row: 3;									/* ... et la ligne 3 */
+			}
+	
+			.contact4{
+				grid-column: 3;									/* La div "contact1" est située sur la colonne 3... */
+				grid-row: 3;									/* ... et la ligne 3 */
+			}
+			
+		}
+		
+	/* Gestion de la grille pour un écran smartphone */
+		@media screen and (max-width: 480px) {
+
+			.conteneur {
+				display: grid;									/* Disposition en grille CSS */
+				grid-template-columns: 1fr 5fr 1fr;				/* Tailles des colonnes : chaque ligne contient 3 cellules */
+				row-gap: 20px;									/* Espacement entre les lignes */
+				column-gap: 20px;								/* Espacement entre les colonnes */
+				grid-auto-rows: minmax(100px, auto);			/* Tailles maximum et minimum des lignes : une ligne ne peut pas faire moins de 100px 
+																même si la largeur de l'écran est inférieure (on ne verra plus le bout de la ligne.
+																Les largeurs de cellules s'étireront et s'espaceront automatiquement sans limite max */
+				background: rgba(80, 0, 0, 2);					/* Couleur de fond de la div de cette classe */
+			}
+			
+			.entete {
+				grid-column: 1 / 4;			/* La div "entete" tient sur les colonnes 1 à 4 (colonne 4 non incluse) */
+				grid-row: 1;				/* Elle tient sur la première ligne de la grille */
+			}
+			
+			.pied {
+				grid-column: 1 / 4; 		/* La div "pied" tient sur les colonnes 1 à 4 (colonne 4 non incluse) */
+				grid-row: 6;				/* Elle est située sur la ligne 8 */
+			}
+	
+			.gauche {
+				grid-column: 1;					/* La div "gauche" tient sur la première colonne */
+				grid-row: 2 / 6;				/* Elle va de la 2ème à la 9ème ligne (non incluse) */
+			}
+	
+			.droite {		
+				grid-column: 3;					/* La div "droite" tient sur la dernière colonne (la colonne 4) */	
+				grid-row: 2 / 6;				/* Elle va de la ligne 2 à la ligne 9 (ligne 9 non incluse) */
+			}
+	
+			.contact1{
+				grid-column: 2;									/* La div "contact1" est située sur la colonne 2... */
+				grid-row: 2;									/* ... et la ligne 2 */
+			}
+	
+			.contact2{
+				grid-column: 2;									/* La div "contact1" est située sur la colonne 2... */
+				grid-row: 3;									/* ... et la ligne 3 */
+			}
+	
+			.contact3{
+				grid-column: 2;									/* La div "contact1" est située sur la colonne 2... */
+				grid-row: 4;									/* ... et la ligne 4 */
+			}
+	
+			.contact4{
+				grid-column: 2;									/* La div "contact1" est située sur la colonne 2... */
+				grid-row: 5;									/* ... et la ligne 5 */
+			}
+			
+		}

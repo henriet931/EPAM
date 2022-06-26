@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<!--
+	Site responsive du club d'Aïkido EPAM
+	Education Physique et Arts Martiaux
+	Grandfontaine et Besançon
+-->
+<html>
+	<head>
+		<title>Club d'Aïkido EPAM - Grandfontaine et Besançon</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link href="https://fonts.googleapis.com/css?family=Lalezar" rel="stylesheet"> 
+		<link rel="stylesheet" href="css/gabarit.css" />
+
+		<!-- Librairie nécessaire pour la carte -->
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js" defer></script> 
+
+		<!-- Librairie AlpineJS nécessaire pour le cours-->
+		<script src="//unpkg.com/alpinejs" defer></script> 
+	</head>
+	
+	<body>
+	
+	<!-- Banniere -->
+			<section id="banniere">
+				<h1>Aïkido à Grandfontaine</h1>
+			</section>
+	
+	<!-- En-tête contenant le menu -->
+	<!-- Attention, le menu burger nécessite d'inclure les scripts jquery situés en bas du fichier html et dans le répertoire js -->
+			<header id="header">
+				
+				<!-- Le logo du club apparaissant sur la gauche -->
+				<a href="index.html"><img src="./images/logo.png"/></a>
+				
+			</header>
+			
+			<div id="logoFFAAA">
+				<a href="http://www.aikido.com.fr" target="_blank"><img src="./images/ffaaa LOGO.png"/></a>
+			</div>
+
+			<section id="enfants" class="wrapper"  x-data="{ ouvrirCours: true, ouvrirCarte: true, ouvrirArticle78: true, ouvrirArticle911: true, ouvrirArticle1215: true, ouvrirArticleSL: true, ouvrirArticleA: true }">
+				<header>
+					<h2>Reprise des cours mercrdi 7 septembre 2022</h2>
+					<!--<h2>Cours d'essai possible toute l'année</h2>-->
+					<h2 x-on:click="if (ouvrirCours) {ouvrirCours = false; ouvrirCarte = false; ouvrirArticle78 = false; ouvrirArticle1215 = false; ouvrirArticle911 = false; ouvrirArticleSL = false; ouvrirArticleA = false;} else ouvrirCours = true;">Les cours</h2>
+					<p x-show="ouvrirCours" x-on:click="if (ouvrirCarte) ouvrirCarte = false; else ouvrirCarte = true; console.log('variable ouvrirCarte : '+ouvrirCarte);">Grandfontaine, Dojo situé 16 rue du Moulin</p>
+					<p x-show="ouvrirCarte"><div class="video" x-show="ouvrirCarte"><iframe width="450" 
+						height="350" frameborder="0" 
+						scrolling="no" 
+						marginheight="0" 
+						marginwidth="0" 
+						src="https://www.openstreetmap.org/export/embed.html?bbox=5.900318026542664%2C47.19383902572647%2C5.904824137687684%2C47.196084440147246&amp;layer=mapnik&amp;marker=47.194961744813355%2C5.902571082115173" 
+						style="border: 1px solid black"></iframe><br/><small>
+						<a href="https://www.openstreetmap.org/?mlat=47.19496&amp;mlon=5.90257#map=18/47.19496/5.90257">Afficher une carte plus grande</a></small>
+					</div></p>	
+				</header>
+				<div class="flexcours" x-show="ouvrirCours">
+					<article>
+						<h3 x-on:click="if (ouvrirArticle911) ouvrirArticle911 = false; else ouvrirArticle911 = true;">Enfants 9 - 11 ans</h3>
+						<p x-show="ouvrirArticle911">Samedi 9h30 - 10h15</p>
+						<p x-show="ouvrirArticle911">80&euro;</p>
+					</article>
+					<article>
+						<h3 x-on:click="if (ouvrirArticle1215) ouvrirArticle1215 = false; else ouvrirArticle1215 = true;">Jeunes 12 - 15 ans</h3>
+						<p x-show="ouvrirArticle1215">Samedi 11h - 12h</p>
+						<p x-show="ouvrirArticle1215">90&euro;</p>
+					</article>
+					<article>
+						<h3 x-on:click="if (ouvrirArticleSL) ouvrirArticleSL = false; else ouvrirArticleSL = true;">Aïki Sabre-laser</h3>
+						<p x-show="ouvrirArticleSL">Samedi 10h15 - 11h</p>
+						<p x-show="ouvrirArticleSL">Tout adhérent de plus de 12 ans</p>
+						<p x-show="ouvrirArticleSL">(adultes admis)</p>
+					</article>
+					<article>		
+						<h3 x-on:click="if (ouvrirArticleA) ouvrirArticleA = false; else ouvrirArticleA = true;">Adultes et + de 16 ans</h3>
+						<p x-show="ouvrirArticleA">Mercredi 19h15 - 20h45</p>
+						<p x-show="ouvrirArticleA">100&euro;</p>
+					</article>
+				</div>
+				<footer x-show="ouvrirCours">
+					<h2>Informations pratiques</h2>
+					<p>Certificat médical obligatoire.</p>
+					<p>Pas de cours pendant les vacances scolaires.</p>
+					<p>Possibilité de faire deux cours d'essai sans engagement sur rendez-vous.</p>
+				</footer>
+			</section>
+
+			<section id="coordonnees" class="wrapper" x-data="{afficherContact: true}">
+				<footer>
+					<h2 x-on:click="if (afficherContact) afficherContact = false; else afficherContact = true;">Nous contacter</h2>
+					<p x-show="afficherContact">epam.aikido@gmail.com</p>
+					<p x-show="afficherContact">06.83.44.47.05 (Julien)</p>
+					<p x-show="afficherContact">Association EPAM - &Eacute;ducation Physique et Arts Martiaux</p>
+					<p x-show="afficherContact">16 rue du Moulin, 25320 Grandfontaine</p>
+				</footer>
+			</section>
+			
+	<!-- Contenus de la page d'accueil - actualités -->
+			
+			<div class="conteneur" x-data="{afficherMembres: true}">
+				<div class="entete">
+					<h2 x-on:click=" if (afficherMembres) afficherMembres = false; else afficherMembres = true;">Qui sommes-nous ?<h2>
+				</div>
+				<div class="gauche" x-show="afficherMembres"></div>
+				<div class="contact1" x-show="afficherMembres">
+					<p class="image"><img src="./images/Silhouette_homme.png"/></p>
+					<p class="personne">Nicolas BLAND</p>
+					<p class="role">Président</p>
+				</div>
+				<div class="contact2" x-show="afficherMembres">
+					<p class="image"><img src="./images/Silhouette_homme.png"/></p>
+					<p class="personne">Romain D&Eacute;OUX</p>
+					<p class="role">Trésorier</p>
+				</div>
+				<div class="contact3" x-show="afficherMembres">
+					<p class="image"><img src="./images/Silhouette_homme.png"/></p>
+					<p class="personne">Christian LEMOINE</p>
+					<p class="role">Membre du CD</p>
+				</div>
+				<div class="contact4" x-show="afficherMembres">
+					<p class="image"><img src="./images/Julien.png"/></p>
+					<p class="personne">Julien HENRIET</p>
+					<p class="role">Enseignant adultes-enfants, secrétaire général, 5ème DAN, DE</p>
+				</div>
+				<div class="droite" x-show="afficherMembres"></div>
+				<div class="pied" x-show="afficherMembres"></div>
+			</div>
+
+			<section id="accueil" class="wrapper" x-data="{afficherInfoAikido: true, afficherInfoClub: true}">
+				<div class="flex">
+					<article>
+						<h3 x-on:click="if (afficherInfoAikido) afficherInfoAikido = false; else afficherInfoAikido = true;">L'Aïkido</h3>
+						<p x-show="afficherInfoAikido">L'Aïkido est un art martial traditionnel Japonais basé sur l'esquive et la coordination. 
+						Le but est de trouver une issue pacifique à tout conflit.
+						L'Aïkidoka ne cherche pas particulièrement à vaincre, le statu-quo est une issue tout-à-fait acceptable à ses yeux !</p>
+						<p x-show="afficherInfoAikido">Souplesse, coordination, respiration, placement, déplacements et recherche de puissance avec un minimum d'efforts 
+						sont autant d'aspects pratiqués durant les cours.</p>
+						<p x-show="afficherInfoAikido">Dénué de compétition, cet art martial peut être pratiqué dès l'enfance et bien après l'âge de départ en retraite !
+						Chacune et chacun progresse à son propre rythme, sans stress !</p>
+						
+	<!-- Vidéo de démonstration d'Aïkido prise sur Youtube -->
+	<!-- Information : le plugin Youtube fonctionne même sans passer par un serveur Web -->
+						<p x-show="afficherInfoAikido"><div class="video" x-show="afficherInfoAikido"><iframe x-show="afficherInfoAikido" width="560" height="315" src="https://www.youtube.com/embed/mxVwsj66Bt8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></p>
+	<!-- Fin de vidéo de démonstration d'Aïkido prise sur Youtub -->
+	
+					</article>
+					<article>
+						<h3 x-on:click="if (afficherInfoClub) afficherInfoClub = false; else afficherInfoClub = true;">Les actualités du club</h3>
+						<p x-show="afficherInfoClub">Créée en 2012, l'association EPAM (&Eacute;ducation Physique et Arts Martiaux) est à but non lucratif affiliée à la 
+						<a href="http://www.aikido.com.fr" target='_blank'>Fédération Française d'Aïkido, Aïkibudo et Associées (FFAAA)</a>.</p>
+						<p x-show="afficherInfoClub">Nous contacter : epam.aikido@gmail.com ou 06.83.44.47.05 (Julien)</p>
+						<p x-show="afficherInfoClub">Suivez-nous sur les réseaux sociaux et notamment sur notre page Facebook !</p>
+						
+	<!-- Intégration de la timeline Facebook du club -->
+	<!-- Attention, le plugin Facebook ne fonctionne qu'en passant par un serveur Web -->
+						<div id="fb-root" x-show="afficherInfoClub"></div>
+						<script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v3.2"></script>
+						<div x-show="afficherInfoClub" class="fb-page" data-href="https://www.facebook.com/aikidobesancon/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/aikidobesancon/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/aikidobesancon/">Club d&#039;Aïkido EPAM à Grandfontaine</a></blockquote></div>
+	<!-- Fin d'intégration de la timeline Facebook du club -->
+						
+					</article>
+				</div>
+			</section>
+	</body>
+</html>
